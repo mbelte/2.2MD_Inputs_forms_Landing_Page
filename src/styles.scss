@@ -1,1 +1,378 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+   scroll-behavior: auto;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Mitr:wght@100&family=Roboto+Condensed&display=swap');
+
+
+$primary: #2E8CAD;
+$secondary: #2EBAEB;
+$tertiary: #94D3EA;
+$gray: #F2F2F2;
+$white: #fff;
+
+body {
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #000;
+}
+
+
+.hero-background {
+  background: url('/assets/images/bg-img.png') no-repeat center top;
+}
+.hero-foreground {
+  background: url('/assets/images/bg-vector.png') no-repeat left top;
+}
+.hero-container {
+  min-height: 1000px;
+  padding: 80px 0;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  background-color: $white;
+  padding: 50px 0;
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__wrap {
+    max-width: 1200px;
+  }
+
+  &--gray {
+    background: $gray;
+  }
+
+  &--blue {
+    background-color: $tertiary;
+  }
+}
+
+
+.logo {
+  background-image: url('/assets/images/logo.svg');
+  height: 72px;
+  width: 396px;
+}
+.main-heading {
+  color: $primary;
+  font-family: 'Mitr', sans-serif;
+  font-size: 72px;
+  font-weight: 600;
+  line-height: 80px;
+}
+.heading {
+  color: $primary;
+  font-family: 'Mitr', sans-serif;
+  font-size: 48px;
+  font-weight: 600;
+  line-height: 56px;
+  text-align: center;
+  text-transform: capitalize;
+
+  &--white {
+    color: $white;
+  }
+}
+
+.droplet-list {
+
+  &>li {
+    color: $primary;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    padding: 0 0 10px 8px;
+
+    &::marker {
+      content: url('/assets/images/rain-drop.svg');
+    }
+  }
+}
+
+.main-btn {
+  background-color: $secondary;
+  border-radius: 40px;
+  display: inline-block;
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  padding: 13px 40px;
+  position: relative;
+  text-decoration: none;
+  transition: background-color 0.5s;
+
+  &::before {
+    border: 1px solid $secondary;
+    border-radius: 40px;
+    content: "";
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+    transition: background-color 0.5s;
+    top: 4px;
+    left: 4px;
+    z-index: 1;
+  }
+
+  &:hover {
+    background-color: $primary;
+  }
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  &__input {
+    background-color: $tertiary;
+    border-radius: 61px;
+    border: none;
+    color: $white;
+    padding: 14px 30px;
+    width: 100%;
+
+    &:focus {
+      outline: 2px solid $primary;
+    }
+    &::placeholder {
+      color: $secondary;
+    }
+  }
+
+  &__btn {
+    background-color: $white;
+    border: 3px solid $tertiary;
+    border-radius: 61px;
+    color: $primary;
+    padding: 13px 50px;
+  }
+}
+.contact-form-wrap {
+  background-color: $white;
+  border-radius: 30px;
+  padding: 60px 53px 43px 53px;
+  max-width: 480px;
+}
+
+.ordered-list {
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+  flex-wrap: wrap;
+  list-style-type: none;
+  padding: 0;
+
+  &__item {
+    counter-increment: incr;
+    width: 330px;
+    padding-top: 34px;
+    position: relative;
+
+    &::before {
+      color: $primary;
+      content: counter(incr);
+      border: 1px solid $primary;
+      border-radius: 50%;
+      font-size: 14px;
+      font-weight: 900;
+      padding: 1px 8px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
+.features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 22px;
+
+  &__item {
+    background-color: $white;
+    border-radius: 30px;
+    max-width: 385px;
+    min-width: 330px;
+
+    &__img {
+      max-width: 385px;
+      height: auto;
+    }
+
+    &__bottom {
+      padding: 30px 30px 50px 30px;
+    }
+
+    &__title {
+      font-size: 16px;
+      font-weight: 900;
+      line-height: 24px;
+      padding-bottom: 10px;
+    }
+
+    &__description {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+    }
+  }
+}
+
+.testimonials {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 46px;
+
+  &__item {
+    background-color: $white;
+    border-radius: 40px;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    max-width: 577px;
+    min-width: 500px;
+    padding: 30px;
+
+    &__img {
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+    }
+
+    &__content {
+      max-width: 423px;
+    }
+
+    &__header {
+      color: $tertiary;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 22px;
+    }
+
+    &__text {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+    }
+  }
+}
+
+.rating {
+  display: flex;
+  gap: 10px;
+
+  &__star {
+    background: url('/assets/images/star.svg');
+    height: 14px;
+    width: 15px;
+  }
+}
+
+
+
+.footer {
+  background-color: #47626B;
+  padding: 46px 0;
+}
+
+.pb-12 {
+  padding-bottom: 12px;
+}
+.pb-30 {
+  padding-bottom: 30px;
+}
+.pb-50 {
+  padding-bottom: 50px;
+}
+.pb-80 {
+  padding-bottom: 80px;
+}
+.pl-6 {
+  padding-left: 6px;
+}
